@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  php-service:
+    build:
+      context: ./php-service
+    ports:
+      - "8080:80" # Map host port 8080 to container port 80
+  node-service:
+    build:
+      context: ./node-service
+    ports:
+      - "3000:3000" # Map host port 3000 to container port 3000
