@@ -1,12 +1,32 @@
 version: "3.8"
+
 services:
-  php-service:
-    build:
-      context: ./php-service
-    ports:
-      - "8080:80" # Map host port 8080 to container port 80
   node-service:
-    build:
-      context: ./node-service
+    build: ./node-service
     ports:
-      - "3000:3000" # Map host port 3000 to container port 3000
+      - "5000:5000"  # Expose Node.js to the outside world
+    depends_on:
+      - python-service
+      - mongodb
+    networks:
+      - backend
+
+  python-service:
+    build: ./python-service
+    expose:
+      - "6000"  # No public access, only internal
+    networks:
+      - backend
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: always
+    expose:
+      - "27017"  # No public access, only internal
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
