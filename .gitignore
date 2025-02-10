@@ -1,0 +1,10 @@
+# Node.js dependencies
+node-service/node_modules/
+node-service/package-lock.json
+
+# Python dependencies
+python-service/__pycache__/
+python-service/venv/
+
+# Environment variables
+.env
