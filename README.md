@@ -48,7 +48,7 @@ Build and start the services:
 docker-compose up --build
 ```
 
-### 3️⃣ Access the Services
+Access the Services
 
 - **Node.js service:** [http://localhost:5000/](http://localhost:5000/)
 - **Python service (via Node.js):** [http://localhost:5000/python](http://localhost:5000/python)
